@@ -2,7 +2,6 @@
 #define ABSTRPROCESSEDDATA_H
 
 #include "dataTypes.h"
-#include "abstrprocesseddata.h"
 
 #include <QObject>
 

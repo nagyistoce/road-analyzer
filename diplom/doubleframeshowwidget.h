@@ -3,7 +3,10 @@
 
 #include "frameshowwidget.h"
 
+#include <opencv2/core/core.hpp>
+
 #include <QWidget>
+#include <QPair>
 
 namespace GUI{
 
@@ -11,15 +14,17 @@ class DoubleFrameShowWidget : public QWidget
 {
     Q_OBJECT
 
-    FrameShowWidget* m_originalFrame;
-    FrameShowWidget* m_resultFrame;
-public:
-    explicit DoubleFrameShowWidget(QWidget *parent = 0);
+    FrameShowWidget* m_leftFrame;
+    FrameShowWidget* m_rightFrame;
 
+public:
+    DoubleFrameShowWidget(QWidget *parent = 0);
+
+    void showData(const cv::Mat& left, const cv::Mat& right);
 signals:
     
 public slots:
-    
+    void showData(const QPair<cv::Mat, cv::Mat>&);
 };
 
 }

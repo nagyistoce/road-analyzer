@@ -6,6 +6,7 @@
 #include <opencv2/core/core.hpp>
 
 namespace DATA{
+
 class PreProcessedVideo : public AbstrPreProcessedData
 {
 public:

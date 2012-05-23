@@ -13,8 +13,6 @@ Engine::Engine(QObject *parent)
               << "created by Alexey Andriyash\n"
               << "ETU(LETI) 2012\n";
 
-    m_gui.show();
-
     createConnections();
 }
 

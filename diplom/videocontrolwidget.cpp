@@ -23,6 +23,3 @@ VideoControlWidget::VideoControlWidget(QWidget *parent) :
     resize(minimumWidth(), minimumHeight());
 }
 
-void VideoControlWidget::resizeEvent ( QResizeEvent * event ) {
-
-}

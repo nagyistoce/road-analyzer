@@ -15,7 +15,7 @@ class FrameShowWidget : public QWidget
 public:
     explicit FrameShowWidget(QWidget *parent = 0, Qt::WindowFlags f=0);
     
-    void showImage(const cv::Mat& image);
+    void showData(const cv::Mat& image);
 
 protected:
     virtual void paintEvent(QPaintEvent *event);

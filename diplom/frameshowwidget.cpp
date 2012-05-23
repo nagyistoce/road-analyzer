@@ -40,7 +40,7 @@ void FrameShowWidget::resizeEvent ( QResizeEvent * event )
 }
 
 
-void FrameShowWidget::showImage(const cv::Mat& image)
+void FrameShowWidget::showData(const cv::Mat& image)
 {
     if(image.data) {
         if(m_image.width()!= image.cols || m_image.height()!=image.rows)

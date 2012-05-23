@@ -12,6 +12,7 @@
 #include <QPair>
 
 namespace DATA{
+
 class DataUnit : public AbstrFileData
 {
     Q_OBJECT

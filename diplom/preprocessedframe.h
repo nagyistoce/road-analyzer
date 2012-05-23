@@ -6,6 +6,7 @@
 #include <opencv2/core/core.hpp>
 
 namespace DATA{
+
 class PreProcessedFrame : public AbstrPreProcessedData
 {
     Q_OBJECT

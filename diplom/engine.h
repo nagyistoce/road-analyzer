@@ -2,7 +2,7 @@
 #define ENGINE_H
 
 #include "appdata.h"
-#include "appwindow.h"
+#include "guifasadclass.h"
 #include "analyzer.h"
 
 #include <QObject>
@@ -13,7 +13,7 @@ class Engine : public QObject
 
     HANDLE::Analyzer m_analyzer;
     DATA::AppData m_appData;
-    GUI::AppWindow m_gui;
+    GUI::GUIFasadClass m_gui;
 
 public:
     Engine(QObject *parent = 0);

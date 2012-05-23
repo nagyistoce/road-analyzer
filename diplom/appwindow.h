@@ -1,15 +1,16 @@
 #ifndef APPWINDOW_H
 #define APPWINDOW_H
 
-#include "dataunit.h"
 #include "appmanagewidget.h"
 #include "videocontrolwidget.h"
-#include "showwidget.h"
+#include "doubleframeshowwidget.h"
+#include "setconfwidget.h"
 
 #include <QWidget>
 #include <QMainWindow>
 #include <QPushButton>
 #include <QWidget>
+#include <QLabel>
 
 namespace GUI{
 
@@ -17,23 +18,34 @@ class AppWindow : public QMainWindow
 {
     Q_OBJECT
 
-    DATA::DataUnit * const m_dataToShow;
 
-    QLabel* m_nameLabel;
+public:
+    AppWindow(QWidget *parent = 0);
+
+    friend class GUIFasadClass;
+
+private:
 
     QPushButton* m_prevHandledData;
     QPushButton* m_nextHandledData;
 
     AppManageWidget* m_appManageWidget;
+    SetConfWidget* m_setConfWidget;
+
     VideoControlWidget* m_videoControlWidget;
 
     DoubleFrameShowWidget* m_doubleFrameShowWidget;
 
 
+    QAction* m_fileAction;
+    QAction* m_configAction;
+    QAction* m_startAction;
+    QAction* m_aboutAction;
 
-public:
-    AppWindow(QWidget *parent = 0);
-
+    void createActions();
+    void createConnections();
+    void createWidgets();
+    QMenuBar* createMenuBar(QWidget* parent);
 
 signals:
 
@@ -46,21 +58,6 @@ signals:
 
     void process();
     void savePath(QString);
-
-public slots:
-
-    void showDataUnit(DATA::DataUnit const * const ) {}
-
-private:
-
-    QAction* m_fileAction;
-    QAction* m_configAction;
-    QAction* m_startAction;
-    QAction* m_aboutAction;
-
-    void createActions();
-    void createConnections();
-    QMenuBar* createMenuBar(QWidget* parent);
 };
 
 }

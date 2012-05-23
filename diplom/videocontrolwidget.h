@@ -17,15 +17,18 @@ class VideoControlWidget : public QWidget
     QPushButton* m_prevButton;
 
 public:
+    friend class GUIFasadClass;
+
     explicit VideoControlWidget(QWidget *parent = 0);
     
 protected:
-    virtual void resizeEvent ( QResizeEvent * event );
+
 
 signals:
     
 public slots:
     
 };
+
 }
 #endif // VIDEOCONTROLWIDGET_H

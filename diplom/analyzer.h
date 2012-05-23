@@ -4,6 +4,7 @@
 #include <QObject>
 
 namespace HANDLE{
+
 class Analyzer : public QObject
 {
     Q_OBJECT

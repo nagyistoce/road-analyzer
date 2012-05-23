@@ -8,11 +8,16 @@
 using namespace GUI;
 
 AppWindow::AppWindow(QWidget *parent) :
-    QMainWindow(parent), m_dataToShow(0)
+    QMainWindow(parent)
 {
     resize(1300,750);
     createActions();
     setMenuWidget(createMenuBar(this));
+    createWidgets();
+
+}
+
+void AppWindow::createWidgets() {
 
     m_appManageWidget = new AppManageWidget(this);
     m_videoControlWidget = new VideoControlWidget(this);
@@ -21,11 +26,6 @@ AppWindow::AppWindow(QWidget *parent) :
     m_nextHandledData = new QPushButton(">" , this);
 
     m_doubleFrameShowWidget = new DoubleFrameShowWidget(this);
-
-    m_prevHandledData->resize(m_prevHandledData->minimumWidth(),
-                              m_prevHandledData->minimumHeight());
-    m_nextHandledData->resize(m_nextHandledData->minimumWidth(),
-                              m_nextHandledData->minimumHeight());
 
     QDockWidget* appManageDockWidget = new QDockWidget(this);
     appManageDockWidget->setWidget(m_appManageWidget);
@@ -44,16 +44,7 @@ AppWindow::AppWindow(QWidget *parent) :
     addDockWidget(Qt::TopDockWidgetArea, appManageDockWidget);
     addDockWidget(Qt::BottomDockWidgetArea, bottomDockWidget);
 
-
     setCentralWidget(m_doubleFrameShowWidget);
-}
-
-void AppWindow::createActions() {
-
-    m_fileAction = new QAction(tr("&File"), this);
-    m_configAction = new QAction(tr("&Config"), this);
-    m_startAction = new QAction(tr("&Start"), this);
-    m_aboutAction = new QAction(tr("&About"), this);
 }
 
 QMenuBar* AppWindow::createMenuBar(QWidget* parent) {
@@ -65,6 +56,14 @@ QMenuBar* AppWindow::createMenuBar(QWidget* parent) {
     menuBar->addAction(m_aboutAction);
 
     return menuBar;
+}
+
+void AppWindow::createActions() {
+
+    m_fileAction = new QAction(tr("&File"), this);
+    m_configAction = new QAction(tr("&Config"), this);
+    m_startAction = new QAction(tr("&Start"), this);
+    m_aboutAction = new QAction(tr("&About"), this);
 }
 
 void AppWindow::createConnections() {

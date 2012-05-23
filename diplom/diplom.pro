@@ -23,7 +23,6 @@ SOURCES += main.cpp \
     filenavwidget.cpp \
     openfilewidget.cpp \
     setconfwidget.cpp \
-    showwidget.cpp \
     doubleframeshowwidget.cpp \
     frameshowwidget.cpp \
     videocontrolwidget.cpp \
@@ -33,7 +32,8 @@ SOURCES += main.cpp \
     abstrfiledata.cpp \
     framefiledata.cpp \
     videofiledata.cpp \
-    xmlfiledata.cpp
+    xmlfiledata.cpp \
+    guifasadclass.cpp
 
 HEADERS += \
     engine.h \
@@ -48,7 +48,6 @@ HEADERS += \
     filenavwidget.h \
     openfilewidget.h \
     setconfwidget.h \
-    showwidget.h \
     doubleframeshowwidget.h \
     frameshowwidget.h \
     videocontrolwidget.h \
@@ -59,7 +58,8 @@ HEADERS += \
     abstrfiledata.h \
     framefiledata.h \
     videofiledata.h \
-    xmlfiledata.h
+    xmlfiledata.h \
+    guifasadclass.h
 
 INCLUDEPATH += F:\DevTools\opencv\build\include\
 

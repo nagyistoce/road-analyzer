@@ -10,7 +10,8 @@ namespace DATA{
 class ProcessedVideo : public AbstrProcessedData
 {
 public:
-    //ProcessedVideo() {}
+    ProcessedVideo(): AbstrProcessedData(VIDEO) {}
+
 };
 }
 #endif // PROCESSEDVIDEO_H

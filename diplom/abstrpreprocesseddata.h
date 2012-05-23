@@ -7,6 +7,7 @@
 #include <QObject>
 
 namespace DATA{
+
 class AbstrPreProcessedData : public QObject
 {
     Q_OBJECT
