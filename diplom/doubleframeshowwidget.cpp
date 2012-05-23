@@ -19,11 +19,20 @@ DoubleFrameShowWidget::DoubleFrameShowWidget(QWidget *parent) :
     setLayout(mainLayout);
 }
 
-void DoubleFrameShowWidget::showData(const cv::Mat &left, const cv::Mat &right) {
+void DoubleFrameShowWidget::showDoubleFrame(const QPair<cv::Mat, cv::Mat>& data) {
+    m_leftFrame->showData(data.first);
+    m_rightFrame->showData(data.second);
+}
+
+void DoubleFrameShowWidget::showLeftFrame(const cv::Mat& left) {
     m_leftFrame->showData(left);
+}
+
+void DoubleFrameShowWidget::showRightFrame(const cv::Mat& right) {
     m_rightFrame->showData(right);
 }
 
-void DoubleFrameShowWidget::showData(const QPair<cv::Mat, cv::Mat>& data) {
-    showData(data.first, data.second);
+void DoubleFrameShowWidget::clearFrames() {
+    m_leftFrame->clear();
+    m_rightFrame->clear();
 }

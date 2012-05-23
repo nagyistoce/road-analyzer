@@ -12,7 +12,7 @@ AppData::AppData(const HANDLE::Analyzer& analyzer)
 
 }
 
-void AppData::newFile(const QString& path)  {
+void AppData::newPath(const QString& path)  {
 
     if(!QFile::exists(path)) {
         fileNotExist();
@@ -24,16 +24,18 @@ void AppData::newFile(const QString& path)  {
 
         QString name = QFileInfo(path).baseName();
 
-        m_curDataUnit = new DataUnit(name, path, m_analyzer);
+        DataUnit* curDataUnit = new DataUnit(name, path, m_analyzer);
 
-        m_curDataUnit->prepairFile();
-        m_curDataUnit->prepairData();
+        curDataUnit->prepairFile();
+        curDataUnit->prepairData();
 
-        m_isCurReaded = m_curDataUnit->isFilePrepared();
-        m_isCurPrepeared = m_curDataUnit->isDataPrepared();
-
-        if(!(m_isCurReaded || m_isCurPrepeared)) {
-            cantPrepar(*m_curDataUnit);
+        if(!(curDataUnit->isFilePrepared() || curDataUnit->isDataPrepared())) {
+            cantPrepar();
+        } else {
+            m_curDataUnit = curDataUnit;
+            m_isCurReaded = m_curDataUnit->isFilePrepared();
+            m_isCurPrepeared = m_curDataUnit->isDataPrepared();
+            prepared();
         }
    }
 }
@@ -42,6 +44,11 @@ void AppData::process() {
     if(m_isCurReaded && m_isCurPrepeared) {
         m_curDataUnit->processData();
         m_isCurProcessed = m_curDataUnit->isDataProcessed();
+    }
+    if(m_isCurProcessed) {
+        m_HandledDataList.push_back(m_curDataUnit);
+    } else {
+        cantProcess();
     }
 }
 

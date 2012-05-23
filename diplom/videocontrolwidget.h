@@ -17,7 +17,7 @@ class VideoControlWidget : public QWidget
     QPushButton* m_prevButton;
 
 public:
-    friend class GUIFasadClass;
+    friend class GUIFacadClass;
 
     explicit VideoControlWidget(QWidget *parent = 0);
     

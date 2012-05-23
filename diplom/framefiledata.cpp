@@ -1,6 +1,7 @@
 #include "framefiledata.h"
 
 #include "preprocessedframe.h"
+#include <iostream>
 
 using namespace DATA;
 
@@ -14,23 +15,28 @@ FrameFileData::~FrameFileData() {
     delete m_frame;
 }
 
-void FrameFileData::read(AbstrPreProcessedData *link) {
-
+AbstrPreProcessedData *FrameFileData::read() {
     assert((m_sourcePath != "unknown") &&
            (AbstrFileData::defineType(m_sourcePath) == FRAME));
 
+    AbstrPreProcessedData *link = 0;
     IplImage* img = 0;
     img = cvLoadImage(m_sourcePath.toAscii().data());
 
-    if(!img) link = 0;
+    if(!img) {
+        std::cout << "FrameFileData::read, can't load img\n";
+    } else {
+        m_frame = new cv::Mat(img);
+        link = new PreProcessedFrame(m_type, m_frame);
 
-    link = new PreProcessedFrame
-                (
-                    m_type,
-                    new cv::Mat(img)
-                );
-
-    m_isReaded = true;
+        if(!link) {
+            std::cout << "FrameFileData::read, can't create cv::Mat\n";
+        } else {
+            m_isReaded = true;
+            std::cout << "FrameFileData::read, image readed, adr - " << link <<"\n";
+        }
+    }
+    return link;
 }
 
 void FrameFileData::save() {

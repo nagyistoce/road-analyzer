@@ -10,7 +10,7 @@ OpenFileWidget::OpenFileWidget(QWidget *parent) :
     QWidget(parent)
 {
     QLabel* widgetLaybel = new QLabel(tr("Path: "), this);
-    m_pathLineEdit = new QLineEdit(tr("..."), this);
+    m_pathLineEdit = new QLineEdit(tr("input_data\\p1.jpg"), this);
     m_okButton = new QPushButton(tr("OK"), this);
     m_cancelButton = new QPushButton(tr("Cancel"), this);
     m_statusLabel = new QLabel(tr("Status: "), this);

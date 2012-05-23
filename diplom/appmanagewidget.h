@@ -19,7 +19,7 @@ class AppManageWidget : public QWidget
 
 public:
     AppManageWidget(QWidget *parent = 0);
-    friend class GUIFasadClass;
+    friend class GUIFacadClass;
 
 };
 

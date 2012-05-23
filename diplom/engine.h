@@ -1,8 +1,8 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include "appdata.h"
-#include "guifasadclass.h"
+#include "datafacadclass.h"
+#include "guifacadclass.h"
 #include "analyzer.h"
 
 #include <QObject>
@@ -12,8 +12,8 @@ class Engine : public QObject
     Q_OBJECT
 
     HANDLE::Analyzer m_analyzer;
-    DATA::AppData m_appData;
-    GUI::GUIFasadClass m_gui;
+    DATA::DataFacadClass m_appData;
+    GUI::GUIFacadClass m_gui;
 
 public:
     Engine(QObject *parent = 0);

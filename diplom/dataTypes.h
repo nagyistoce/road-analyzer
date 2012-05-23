@@ -3,7 +3,12 @@
 
 namespace DATA{
 
-enum TYPE{ UNKNOWN, FRAME, VIDEO, XML};
+enum TYPE { UNKNOWN, FRAME, VIDEO, XML};
+
+struct Info {
+    TYPE type;
+    bool isProcessed;
+};
 
 }
 #endif // DATATYPES_H

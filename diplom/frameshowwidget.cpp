@@ -42,6 +42,7 @@ void FrameShowWidget::resizeEvent ( QResizeEvent * event )
 
 void FrameShowWidget::showData(const cv::Mat& image)
 {
+    m_cvImage = &image;
     if(image.data) {
         if(m_image.width()!= image.cols || m_image.height()!=image.rows)
             m_image=QImage(image.cols,image.rows,QImage::Format_RGB888);
@@ -58,5 +59,15 @@ void FrameShowWidget::showData(const cv::Mat& image)
         QPainter painter(&m_image);
         painter.fillRect(m_image.rect(),Qt::black);
     }
+    if(m_image.width() > width() || m_image.height() > height()) {
+        resizeEvent(new QResizeEvent(size(), size()));
+    }
+    update();
+}
+
+void FrameShowWidget::clear() {
+
+    QPainter painter(&m_image);
+    painter.fillRect(m_image.rect(),Qt::black);
     update();
 }

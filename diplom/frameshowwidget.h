@@ -13,9 +13,10 @@ class FrameShowWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FrameShowWidget(QWidget *parent = 0, Qt::WindowFlags f=0);
+    FrameShowWidget(QWidget *parent = 0, Qt::WindowFlags f=0);
     
     void showData(const cv::Mat& image);
+    void clear();
 
 protected:
     virtual void paintEvent(QPaintEvent *event);
@@ -23,7 +24,7 @@ protected:
 
 private:
     enum BGR { BLUE, GREEN, RED };
-
+    cv::Mat const* m_cvImage;
     QImage m_image;
 };
 

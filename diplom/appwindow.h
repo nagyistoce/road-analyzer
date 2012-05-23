@@ -22,7 +22,7 @@ class AppWindow : public QMainWindow
 public:
     AppWindow(QWidget *parent = 0);
 
-    friend class GUIFasadClass;
+    friend class GUIFacadClass;
 
 private:
 

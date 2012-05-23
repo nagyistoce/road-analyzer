@@ -20,11 +20,15 @@ class DoubleFrameShowWidget : public QWidget
 public:
     DoubleFrameShowWidget(QWidget *parent = 0);
 
-    void showData(const cv::Mat& left, const cv::Mat& right);
 signals:
     
 public slots:
-    void showData(const QPair<cv::Mat, cv::Mat>&);
+    void showDoubleFrame(const QPair<cv::Mat, cv::Mat>&);
+
+    void showLeftFrame(const cv::Mat& left);
+    void showRightFrame(const cv::Mat& right);
+
+    void clearFrames();
 };
 
 }

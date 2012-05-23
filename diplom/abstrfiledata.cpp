@@ -9,32 +9,40 @@
 
 #include "assert.h"
 
+#include <iostream>
+
 using namespace DATA;
 
 AbstrFileData* AbstrFileData::Factory(const QString& sourcePath) {
 
-    AbstrFileData* returned;
+    std::cout << "AbstrFileData::Factory\n";
+    AbstrFileData* returned = 0;
     QString name = QFileInfo(sourcePath).baseName();
     switch(defineType(sourcePath)) {
-
         case FRAME:
+            std::cout << "AbstrFileData::Factory TYPE: FRAME\n";
             returned = new FrameFileData(name);
             returned->setFileSourcePath(sourcePath);
         break;
 
         case VIDEO:
+            std::cout << "AbstrFileData::Factory TYPE: VIDEO\n";
             returned = new VideoFileData(name);
             returned->setFileSourcePath(sourcePath);
         break;
 
         case XML:
+            std::cout << "AbstrFileData::Factory TYPE: XML\n";
             returned = new VideoFileData(name);
             returned->setFileSourcePath(sourcePath);
         break;
 
         case UNKNOWN:
+            std::cout << "AbstrFileData::Factory TYPE: UNKNOWN\n";
             returned = 0;
         break;
+
+
     };
 
     return returned;
@@ -75,10 +83,10 @@ TYPE AbstrFileData::defineType(QString path) {
 
 bool AbstrFileData::defineIsFrame(QString fileSuffix) {
 
-    QString frameSuffixes[] = {".bmp", ".dib",
-                             ".jpeg", ".jpg", ".jpe", ".jp2",
-                             ".png", ".pbm", ".pgm",
-                             ".sr",  ".ras",  ".tiff", ".tif"};
+    QString frameSuffixes[] = {"bmp", "dib",
+                             "jpeg", "jpg", "jpe", "jp2",
+                             "png", "pbm", "pgm",
+                             "sr",  "ras",  "tiff", "tif"};
 
     for(int i = 0; i < 13; i++) {
         if(fileSuffix == frameSuffixes[i]) {

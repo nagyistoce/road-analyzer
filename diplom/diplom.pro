@@ -33,7 +33,8 @@ SOURCES += main.cpp \
     framefiledata.cpp \
     videofiledata.cpp \
     xmlfiledata.cpp \
-    guifasadclass.cpp
+    guifacadclass.cpp \
+    datafacadclass.cpp
 
 HEADERS += \
     engine.h \
@@ -59,7 +60,8 @@ HEADERS += \
     framefiledata.h \
     videofiledata.h \
     xmlfiledata.h \
-    guifasadclass.h
+    guifacadclass.h \
+    datafacadclass.h
 
 INCLUDEPATH += F:\DevTools\opencv\build\include\
 

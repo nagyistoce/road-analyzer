@@ -10,7 +10,7 @@ using namespace GUI;
 AppWindow::AppWindow(QWidget *parent) :
     QMainWindow(parent)
 {
-    resize(1300,750);
+    resize(750,500);
     createActions();
     setMenuWidget(createMenuBar(this));
     createWidgets();

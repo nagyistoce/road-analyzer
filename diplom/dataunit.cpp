@@ -1,5 +1,7 @@
 #include "dataunit.h"
 
+#include <iostream>
+
 using namespace DATA;
 
 DataUnit::DataUnit(const QString& name,
@@ -14,6 +16,10 @@ DataUnit::DataUnit(const QString& name,
     m_handleFile = 0;
     m_preProcessedData = 0;
     m_processedData = 0;
+
+    m_isFilePrepared = false;
+    m_isDataPrepared = false;
+    m_isDataProcessed = false;
 }
 
 void DataUnit::read(DataUnit* link) { m_isReaded = 0; link = 0; }
@@ -22,14 +28,19 @@ void DataUnit::save() { m_isSaved = 0; }
 
 void DataUnit::prepairFile() {
     m_handleFile = AbstrFileData::Factory(m_sourcePath);
-    if(m_handleFile)
+    if(m_handleFile) {
         m_isFilePrepared = true;
+        m_type = m_handleFile->getType();
+    }
 }
 
 void DataUnit::prepairData() {
-    m_handleFile->read(m_preProcessedData);
-    if(m_preProcessedData)
-            m_isDataPrepared = true;
+    m_preProcessedData = m_handleFile->read();
+    std::cout << "DataUnit::prepairData adr - " <<  m_preProcessedData <<"\n";
+    if(m_preProcessedData) {
+        std::cout << "DataUnit::prepairData,data Prepared\n";
+        m_isDataPrepared = true;
+    }
 }
 void DataUnit::processData() {
     m_processedData = m_preProcessedData->process();

@@ -19,8 +19,7 @@ public:
 
     virtual AbstrProcessedData* process() const { return 0; }   //stub!
 
-    const cv::Mat& getFrame() const { return *m_frame; }
-
+    virtual const cv::Mat& getFrame(int pos = 0) const { return *m_frame; }
 };
 }
 #endif // PREPROCESSEDFRAME_H
