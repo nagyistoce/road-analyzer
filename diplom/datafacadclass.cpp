@@ -69,7 +69,10 @@ void DataFacadClass::sendNextFrame() {
             break;
 
             case VIDEO:
+                    sendOriginalFrame(m_curDataUnit->getPreProcessedData().getFrame(1));
+                    if(m_curDataUnit->isDataProcessed()) {
 
+                    }
             break;
         };
 

@@ -64,7 +64,7 @@ const AbstrFileData& DataUnit::getHandleFile() const {
     return *m_handleFile;
 }
 
-const AbstrPreProcessedData& DataUnit::getPreProcessedData() const {
+/*const*/ AbstrPreProcessedData& DataUnit::getPreProcessedData() const {
     return *m_preProcessedData;
 }
 

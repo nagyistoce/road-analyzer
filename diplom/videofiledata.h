@@ -3,15 +3,18 @@
 
 #include "abstrfiledata.h"
 
+#include "opencv2/opencv.hpp"
+
 namespace DATA{
 
 class VideoFileData : public AbstrFileData
 {
+
 public:
       VideoFileData(const QString& name);
-   //   virtual ~VideoFileData();
+      virtual ~VideoFileData();
 
-    virtual void read(AbstrPreProcessedData* link) {} //stub!
+    virtual AbstrPreProcessedData* read();
     virtual void save(){} //stub!
 };
 

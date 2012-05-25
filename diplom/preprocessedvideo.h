@@ -4,13 +4,19 @@
 #include "abstrpreprocesseddata.h"
 
 #include <opencv2/core/core.hpp>
+#include "opencv2/opencv.hpp"
 
 namespace DATA{
 
 class PreProcessedVideo : public AbstrPreProcessedData
 {
+    CvCapture* m_videoStream;
+
 public:
-    PreProcessedVideo(TYPE type);
+    PreProcessedVideo(CvCapture* videoStream);
+    virtual const cv::Mat& getFrame(int pos = 0);
+
 };
+
 }
 #endif // PREPROCESSEDVIDEO_H

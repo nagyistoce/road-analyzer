@@ -44,7 +44,6 @@ public:
 
     virtual void setFileSourcePath(const QString& sourcePath);
     virtual AbstrPreProcessedData* read(){ m_isReaded = 0; std::cout << " AbstrFileData::::read\n"; return 0; }
-    virtual void read(AbstrPreProcessedData* link) { m_isReaded = 0; link = 0; std::cout << " AbstrFileData::::read\n"; }
     virtual void read(DataUnit* link) { m_isReaded = 0; link = 0; std::cout << " AbstrFileData::::read\n"; }
 
     virtual void save() { m_isSaved = 0; }

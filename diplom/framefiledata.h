@@ -12,7 +12,7 @@ class FrameFileData : public AbstrFileData
     cv::Mat* m_frame;
 public:
     FrameFileData(const QString& name);
-    ~FrameFileData();
+//    ~FrameFileData();
 
     virtual AbstrPreProcessedData* read();
     virtual void save(); //stub!

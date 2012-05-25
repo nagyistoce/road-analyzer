@@ -42,7 +42,7 @@ public:
     bool isDataProcessed() const;
 
     const AbstrFileData& getHandleFile() const;
-    const AbstrPreProcessedData& getPreProcessedData() const;
+    /*const*/ AbstrPreProcessedData& getPreProcessedData() const;
     const AbstrProcessedData& getProcessedData() const;
     const HANDLE::Analyzer& getAnalyzer() const;
 signals:

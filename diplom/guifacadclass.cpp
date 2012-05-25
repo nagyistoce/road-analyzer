@@ -133,7 +133,7 @@ void GUIFacadClass::ps_pauseVideo() {
 }
 
 void GUIFacadClass::ps_playVideo() {
-   m_videoTimer->start(500);
+   m_videoTimer->start(30);
 }
 
 void GUIFacadClass::ps_nextFrame() {

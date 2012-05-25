@@ -21,11 +21,11 @@ public:
     AbstrPreProcessedData(TYPE type) : m_type(type) {}
     virtual ~AbstrPreProcessedData() {}
 
-    virtual const cv::Mat& getFrame(int pos = 0) const { return *(new cv::Mat()); }
+    virtual const cv::Mat& getFrame(int pos = 0) { return *(new cv::Mat()); }
+    TYPE getType() const { return m_type; }
 
     virtual AbstrProcessedData* process() const { return 0; }
 
-    TYPE getType() const { return m_type; }
 
 signals:
     void processed() const;

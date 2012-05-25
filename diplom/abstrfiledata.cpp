@@ -96,7 +96,15 @@ bool AbstrFileData::defineIsFrame(QString fileSuffix) {
     return false;
 }
 
-bool AbstrFileData::defineIsVideo(QString) {
+bool AbstrFileData::defineIsVideo(QString fileSuffix) {
+
+    QString frameSuffixes[] = {"AVI", "avi"};
+
+    for(int i = 0; i < 2; i++) {
+        if(fileSuffix == frameSuffixes[i]) {
+            return true;
+        }
+    }
     return false;
 }
 bool AbstrFileData::defineIsXML(QString) {

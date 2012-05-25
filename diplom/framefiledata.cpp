@@ -11,11 +11,8 @@ FrameFileData::FrameFileData(const QString& name):
     AbstrFileData::m_type = FRAME;
 }
 
-FrameFileData::~FrameFileData() {
-    delete m_frame;
-}
-
 AbstrPreProcessedData *FrameFileData::read() {
+
     assert((m_sourcePath != "unknown") &&
            (AbstrFileData::defineType(m_sourcePath) == FRAME));
 
