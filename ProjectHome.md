@@ -1,0 +1,1 @@
+This is Bachelor project, thesis topic - "Car Black Box data mining application with OpenCV using"
